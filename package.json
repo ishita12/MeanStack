@@ -1,0 +1,22 @@
+{
+  "name": "travelblog",
+  "version": "1.0.0",
+  "description": "mean",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "ishita",
+  "license": "ISC",
+  "dependencies": {
+    "angular2-datetimepicker": "^1.1.1",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.11",
+    "ng2-search-filter": "^0.4.7",
+    "password-hash": "^1.2.2"
+  }
+}

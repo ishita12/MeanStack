@@ -1,0 +1,116 @@
+<h1 class="page-header">Post Jobs</h1>
+
+
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message">
+  <div ng-class="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+
+<!-- New Post Button -->
+<button  type="button" name="button" class="btn btn-warning" *ngIf="!newJobPost" (click)="newJobForm()">New Post</button>
+
+<!--<button  type="button" name="button" class="btn btn-warning" *ngIf="!newJobPost" (click)="getJobs()">Get Jobs</button>
+-->
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+
+
+<!-- Registration Form -->
+<form [formGroup]="jobForm" (submit)="onJobSubmit()" *ngIf="newJobPost">
+
+  <!-- job title Input -->
+  <div class="form-group">
+    <label for="title">Job Title</label>
+      <input type="text" name="title" class="form-control" autocomplete="off" placeholder="*jobTitle" formControlName="title" />
+      <!-- Validation -->
+      <ul class="help-block">
+        </ul>
+    </div>
+
+
+    <div class="form-group">
+      <label for="company">Company</label>
+        <input type="text" name="company" class="form-control" autocomplete="off" placeholder="*company" formControlName="company" />
+        <!-- Validation -->
+        <ul class="help-block">
+          </ul>
+      </div>
+
+
+      <!-- Body Input -->
+      <div class="form-group">
+        <label for="description">Description</label>
+          <!-- Body Input -->
+          <textarea name="description" rows="8" cols="80" placeholder="*description" class="form-control" formControlName="description"></textarea>
+          <!-- Validation -->
+          <ul class="help-block">
+          </ul>
+        </div>
+
+
+<div class="form-group">
+  <label for="deadline">Deadline</label>
+  <input  type="date" name="deadline" class="form-control" min=min autocomplete="off" placeholder="*deadline" formControlName="deadline" />
+
+  <ul class="help-block">
+  </ul>
+
+</div>
+
+
+
+    <!-- Submit Input -->
+  <button [disabled]="processing || !form.valid" type="submit" class="btn btn-primary" value="Submit">Submit</button>
+
+</form>
+<!-- Registration Form /-->
+
+
+
+<!-- view jobs -->
+
+
+<div *ngIf="!newJobPost">
+
+
+  <div class="panel panel-primary" *ngFor="let job of jobPosts">
+<div>
+    <!-- Panel category -->
+    <div>
+      <h3 class="panel-title">{{ job.title }}</h3>
+    </div>
+
+
+    <!-- Panel category -->
+    <div>
+      <h3 class="panel-category">{{ job.company }}</h3>
+    </div>
+
+
+    <!-- Panel category -->
+    <div>
+      <h3>{{ job.description }}</h3>
+    </div>
+
+
+    <div>
+      <h3>{{ job.deadline }}</h3>
+    </div>
+
+
+    <a [routerLink]="['/delete-job/', job._id]"><button  [disabled]="processing"  type="button" name="button" class="btn btn-danger">Delete</button></a>
+
+
+</div>
+<hr>
+
+</div>
+
+
+
+
+
+</div>

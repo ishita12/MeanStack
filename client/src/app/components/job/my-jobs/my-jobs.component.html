@@ -1,0 +1,45 @@
+<h1 class="page-header">View All the Jobs</h1>
+
+
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message">
+  <div ng-class="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+
+
+<!--<button  type="button" name="button" class="btn btn-warning" *ngIf="!newJobPost" (click)="getJobs()">Get Jobs</button>
+-->
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+
+
+
+  <div class="panel panel-primary" *ngFor="let app of jobApplications">
+<div>
+    <!-- Panel category -->
+    <div>
+      <h3 class="panel-title">{{ app.position }}</h3>
+    </div>
+
+
+    <!-- Panel category -->
+    <div>
+      <h3 class="panel-category">{{ app.companyName }}</h3>
+    </div>
+
+    <!-- Panel category -->
+    <div>
+      <h3 class="panel-category">{{ app.appliedOn }}</h3>
+    </div>
+
+    <button   type="button" name="button" class="btn btn-danger" (click)="onDelete(app._id)">Delete</button>
+
+
+</div>
+
+<hr>
+
+</div>

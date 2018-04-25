@@ -1,0 +1,289 @@
+<h2>Welcome to rooms and spaces </h2>
+
+<div class="row show-hide-message">
+  <div ng-class="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+
+<div *ngIf="!test">
+<div>
+
+  Snell Library 1st Floor Rooms
+
+  <button type="button" class="btn btn-warning" name="button" (click)="selectFloor()">Book Now </button>
+
+</div>
+
+
+
+<div>
+
+  Snell Library 2nd Floor Rooms
+
+
+  <button type="button" class="btn btn-warning" name="button" (click)="selectFloor1()">Book Now </button>
+
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+</div>
+
+<form [formGroup]="myForm" (submit)="onSelect()" *ngIf='floorType'>
+<h2> Select the date </h2>
+
+  <div class="form-group">
+
+    <input  type="date" name="mydate" class="form-control"  autocomplete="off" placeholder="*select date" formControlName="mydate" required/>
+
+    <ul class="help-block">
+    </ul>
+
+  </div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+  <button  type="submit" name="button" class="btn btn-sm btn-info">Search</button>
+
+</form>
+
+
+
+
+
+
+
+<form [formGroup]="myForm" (submit)="onSubmit()" *ngIf='rest'>
+
+
+<h2>select from available rooms </h2>
+
+<div>
+      <label>Room no.</label>
+  <select class="form-control" formControlName="room" required>
+     <option *ngFor="let room of myRooms" [ngValue]="room" > {{room}} </option>
+  </select>
+
+
+<!--
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of myTimes" [ngValue]="time" > {{time}} </option>
+  </select>
+-->
+
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+<button  type="submit" name="button" class="btn btn-sm btn-info">select room no.</button>
+</form>
+
+
+
+
+
+
+
+
+<form [formGroup]="myForm" (submit)="onSubmit1()" *ngIf='restDetail'>
+<h2> Select from available time slots </h2>
+
+  <div>
+ <h3 class="panel-category">{{ roomType }}</h3>
+
+  </div>
+
+
+  <div>
+
+<h3 class="panel-category">{{ floor }}</h3>
+
+  </div>
+
+
+  <div>
+
+<h3 class="panel-category">{{ date }}</h3>
+
+  </div>
+
+<div>
+<h3 class="panel-category">  {{ selectedRoom }} </h3>
+
+</div>
+
+
+<div>
+      <label>Time Slot</label>
+  <select class="form-control" formControlName="time" required>
+     <option *ngFor="let time of myTimes" [ngValue]="time" > {{time}} </option>
+  </select>
+
+
+<!--
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of myTimes" [ngValue]="time" > {{time}} </option>
+  </select>
+-->
+
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+<button  type="submit" name="button" class="btn btn-sm btn-info">select Time Slot</button>
+</form>
+
+
+
+<!--  in case when time slots have been selected    -->
+
+
+
+
+
+
+
+
+<form [formGroup]="myForm" (submit)="onSubmit2()" *ngIf='rest1'>
+
+
+<h2>select from available rooms </h2>
+
+<div>
+      <label>Room no.</label>
+  <select class="form-control" formControlName="room" required>
+     <option *ngFor="let room of availableRooms" [ngValue]="room" > {{room}} </option>
+  </select>
+
+
+
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of availableTimes" [ngValue]="time" > {{time}} </option>
+  </select>
+
+
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+<button  type="submit" name="button" class="btn btn-sm btn-info">submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+<form [formGroup]="myForm" (submit)="onSubmit11()" *ngIf='true1'>
+
+
+<h2>available rooms !!!!! </h2>
+
+<div>
+      <label>Room no.</label>
+  <select class="form-control" formControlName="room" required>
+     <option *ngFor="let room of roomm" [ngValue]="room" > {{room}} </option>
+  </select>
+
+
+<!--
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of tot" [ngValue]="time" > {{time}} </option>
+  </select>
+
+-->
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+<button  type="submit" name="button" class="btn btn-sm btn-info">submit</button>
+</form>
+
+
+
+
+
+<form [formGroup]="myForm" (submit)="onSubmit3()" *ngIf='restDetail1'>
+<h2> Available time slots !!!!!!!!!!!!! </h2>
+
+  <div>
+ <h3 class="panel-category">{{ a1 }}</h3>
+
+  </div>
+
+
+  <div>
+
+<h3 class="panel-category">{{ a2 }}</h3>
+
+  </div>
+
+
+  <div>
+
+<h3 class="panel-category">{{ a3 }}</h3>
+
+  </div>
+
+<div>
+<h3 class="panel-category">  {{ a4 }} </h3>
+
+</div>
+
+
+<div>
+      <label>Time Slot</label>
+  <select class="form-control" formControlName="time" required>
+     <option *ngFor="let time of tot" [ngValue]="time" > {{time}} </option>
+  </select>
+
+
+<!--
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of myTimes" [ngValue]="time" > {{time}} </option>
+  </select>
+-->
+
+</div>
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+<button  type="submit" name="button" class="btn btn-sm btn-info">select Time Slot</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <div class="form-group">
+      <label for="StartTime">Start Time</label>
+        <input type="time" name="startTime" class="form-control"   autocomplete="off" placeholder="*startTime" formControlName="startTime" />
+
+        <ul class="help-block">
+          </ul>
+      </div>
+
+
+      <div class="form-group">
+        <label for="EndTime">End Time</label>
+          <input type="time" name="endTime" class="form-control" autocomplete="off" placeholder="*endTime" formControlName="endTime" />
+
+          <ul class="help-block">
+            </ul>
+        </div>
+
+-->

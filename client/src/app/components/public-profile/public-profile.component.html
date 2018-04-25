@@ -1,0 +1,47 @@
+<h1 class="page-header">Public Profile</h1>
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message" *ngIf="message">
+  <div [ngClass]="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+<!-- Table to Display User Info -->
+<ul *ngIf="foundProfile" class="list-group">
+  <!-- Username -->
+  <li class="list-group-item"><strong>Username: </strong>{{ username }}</li>
+  <!-- E-Mail -->
+  <li class="list-group-item"><strong>E-Mail: </strong>{{ email }}</li>
+</ul>
+
+<!-- Go Back Button -->
+<button type="button" name="button" class="btn btn-warnin" (click)="chat()">Send A Message </button>
+
+<button type="button" name="button" class="btn btn-success" (click)="goBack()">Go Back </button>
+
+
+
+
+
+<div *ngIf="msg">
+
+
+
+  <form [formGroup]="cForm" (submit)="onSubmit()">
+  
+    <div class="form-group">
+
+      <textarea name="chat" rows="8" cols="80" placeholder="*chat" class="form-control" formControlName="chat"></textarea>
+      <ul class="help-block">
+      </ul>
+
+    </div>
+  <button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+    <button [disabled]="processing" type="submit" name="button" class="btn btn-sm btn-info">Send</button>
+
+  </form>
+
+
+
+</div>

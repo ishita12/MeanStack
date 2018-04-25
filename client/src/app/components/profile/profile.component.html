@@ -1,0 +1,29 @@
+<h2 class="page-header">Profile Page</h2>
+<ul class="list-group">
+  <li class="list-group-item">Username: {{ username }}</li>
+  <li class="list-group-item">Email: {{ email }}</li>
+</ul>
+
+
+<button type="button" *ngIf='role==="admin"' class="btn btn-sm btn-success"  routerLink="/jobPost" >Post Jobs</button>
+
+<button type="button" *ngIf='role==="admin"'  class="btn btn-sm btn-warning"  routerLink="/roomPost" >Post Rooms Availability</button>
+
+
+<button type="button" *ngIf='role==="student"' class="btn btn-sm btn-success"  routerLink="/job" >View all the jobs</button>
+
+
+
+<button type="button" *ngIf='role==="student"' class="btn btn-sm btn-warning"  routerLink="/viewEvents" >View all the Events</button>
+
+
+<button type="button" *ngIf='role==="student"' class="btn btn-sm btn-info" routerLink="/priorityJob"> My priority Jobs </button>
+
+
+
+<button type="button" *ngIf='role==="student"' class="btn btn-sm btn-warning" routerLink="/library"> Rooms and Spaces </button>
+
+
+
+
+<button type="button" *ngIf='role==="student"' class="btn btn-sm btn-warning" routerLink="/message"> My Messages </button>

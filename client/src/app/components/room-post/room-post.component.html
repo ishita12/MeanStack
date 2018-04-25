@@ -1,0 +1,66 @@
+<h2> Post Room Availability </h2>
+
+<!-- Custom Success/Error Message -->
+<div class="row show-hide-message">
+  <div ng-class="messageClass">
+    {{ message }}
+  </div>
+</div>
+
+
+<form [formGroup]="mForm" (submit)="onSave()">
+
+<div *ngIf="!check2">
+  <select class="form-control" formControlName="rtype" required>
+  <option *ngFor="let rtype of typeList" [ngValue]="rtype" > {{rtype}} </option>
+
+  </select>
+    <button type="button" name="button" (click)="onType()"> select the Study room type</button>
+</div>
+
+
+
+
+<div *ngIf="check1">
+
+    <select class="form-control" formControlName="floor" required>
+ <option *ngFor="let floor of floorList" [ngValue]="floor" > {{floor}} </option>
+
+
+
+    </select>
+<button type="button" name="button" (click)="onSelect()"> select the floor</button>
+  </div>
+
+
+
+<div *ngIf="val">
+  <div class="form-group">
+    <label for="mydate">select Date </label>
+    <input  type="date" name="mydate" class="form-control"  autocomplete="off" placeholder="*select date" formControlName="mydate" />
+
+    <ul class="help-block">
+    </ul>
+
+  </div>
+
+
+      <label>Room no.</label>
+  <select class="form-control" formControlName="room" required>
+     <option *ngFor="let room of roomList" [ngValue]="room" > {{room}} </option>
+  </select>
+
+
+
+  <label>Select duration</label>
+  <select class="form-control" formControlName="time" required>
+  <option *ngFor="let time of timeList" [ngValue]="time" > {{time}} </option>
+  </select>
+
+
+<button type="button" name="button" (click)="goBack()" class="btn btn-warning">Go Back</button>
+
+  <button [disabled]=" !mForm.valid" type="submit" name="button" class="btn btn-sm btn-info">post Availability</button>
+</div>
+
+</form>
